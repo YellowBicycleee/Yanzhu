@@ -1,6 +1,6 @@
 export JENKINS_NODE_COOKIE=dontkillme
 #!/bin/bash
-APP_NAME=$(pwd)/Yanzhu/target/backend-0.0.1-SNAPSHOT.jar 
+APP_NAME=$(pwd)/backend/target/backend-0.0.1-SNAPSHOT.jar 
 
 #检查程序是否在运行
 is_exist(){
