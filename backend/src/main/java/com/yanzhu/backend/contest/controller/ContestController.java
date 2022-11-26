@@ -24,7 +24,7 @@ public class ContestController {
             Map<String, Object> map1 = contestService.queryAllContest();
             int total = (int) map1.get("total");
             List<Contest> contests = (List<Contest>) map1.get("contests");
-            // System.out.println("#########################"+contests);
+            
             if (contests != null){
                 map.put("status", "200");
                 map.put("total", total);
