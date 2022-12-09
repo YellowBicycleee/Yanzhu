@@ -16,7 +16,7 @@ import static com.yanzhu.backend.util.Constant.DEVELOP_ORIGIN;
 import static com.yanzhu.backend.util.Constant.PRODUCE_ORIGIN;
 
 
-@Api(value = "查询信息接口",tags = "查询信息接口说明")
+@Api(value = "查询信息接口",tags = "机器人查询信息接口说明")
 @CrossOrigin(origins={DEVELOP_ORIGIN, PRODUCE_ORIGIN}, allowCredentials="true")
 @RestController
 @RequestMapping("/qa/{question}")
