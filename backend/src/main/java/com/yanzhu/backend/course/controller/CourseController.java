@@ -11,7 +11,11 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import static com.yanzhu.backend.util.Constant.DEVELOP_ORIGIN;
+import static com.yanzhu.backend.util.Constant.PRODUCE_ORIGIN;
+
 @RestController
+@CrossOrigin(origins={DEVELOP_ORIGIN, PRODUCE_ORIGIN}, allowCredentials="true")
 @RequestMapping("/course")
 public class CourseController {
     @Autowired

@@ -9,7 +9,7 @@ public interface IUserService extends IService<User> {
     // 注册用户
     int regAdd(String account, String password);
     // 获取用户
-    User getUser(String account);
+    // User getUser(String account);
     // 重置密码
     int resetPass(String account, String oldPassword, String newPassword);
     // 删除用户

@@ -24,8 +24,9 @@ public class QuestionController {
     @ApiOperation(value = "智能查询")
     @GetMapping("/")
     public String askQuestion(@PathVariable String question){
-        String answer = sendPost("http://127.0.0.1:5000","question="+question);
-        return answer;
+        return "test";
+        // String answer = sendPost("http://127.0.0.1:5000","question="+question);
+        // return answer;
     }
 
     //发送请求

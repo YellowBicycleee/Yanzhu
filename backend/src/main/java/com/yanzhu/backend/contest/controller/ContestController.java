@@ -4,6 +4,7 @@ import com.alibaba.fastjson.JSON;
 import com.yanzhu.backend.contest.entity.Contest;
 import com.yanzhu.backend.contest.service.IContestService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -12,7 +13,11 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import static com.yanzhu.backend.util.Constant.DEVELOP_ORIGIN;
+import static com.yanzhu.backend.util.Constant.PRODUCE_ORIGIN;
+
 @RestController
+@CrossOrigin(origins={DEVELOP_ORIGIN, PRODUCE_ORIGIN}, allowCredentials="true")
 @RequestMapping("/contest")
 public class ContestController {
     @Autowired

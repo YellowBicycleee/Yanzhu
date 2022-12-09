@@ -66,26 +66,26 @@ public class UserController {
         }
         return JSON.toJSONString(map);
     }
-    @ApiOperation(value = "获得某个用户", notes = "根据用户名 ------最后考虑")
-    @RequestMapping(value="/getUser",method = RequestMethod.POST)
-    public String getUser(String account){
-        Map<String,Object> map=new HashMap<String,Object>();
-        try{
-            User user=userService.getUser(account);
-            map.put("status","200");
-            if(user!=null){
-                map.put("data",user);
-            }
-            else {
-                map.put("errorMsg","Fail,can't find user "+account);
-            }
-        }
-        catch(Exception ex){
-            map.put("status","500");
-            map.put("errorMsg","Error:"+ex.getMessage());
-        }
-        return JSON.toJSONString(map);
-    }
+//    @ApiOperation(value = "获得某个用户", notes = "根据用户名 ------最后考虑")
+//    @RequestMapping(value="/getUser",method = RequestMethod.POST)
+//    public String getUser(String account){
+//        Map<String,Object> map=new HashMap<String,Object>();
+//        try{
+//            User user=userService.getUser(account);
+//            map.put("status","200");
+//            if(user!=null){
+//                map.put("data",user);
+//            }
+//            else {
+//                map.put("errorMsg","Fail,can't find user "+account);
+//            }
+//        }
+//        catch(Exception ex){
+//            map.put("status","500");
+//            map.put("errorMsg","Error:"+ex.getMessage());
+//        }
+//        return JSON.toJSONString(map);
+//    }
     @ApiOperation(value = "修改密码", notes = "根据旧密码新密码修改密码")
     @RequestMapping(value="/resetPass",method = RequestMethod.POST)
     public String resetPass(String account,String oldPassword, String newPassword){

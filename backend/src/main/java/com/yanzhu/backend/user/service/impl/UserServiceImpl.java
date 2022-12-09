@@ -37,13 +37,13 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements IU
             return i;
         }
     }
-    @Override
-    public User getUser(String account) {
-        QueryWrapper nameWrapper = new QueryWrapper();
-        nameWrapper.eq("account", account);
-        User user = userMapper.selectOne(nameWrapper);
-        return user;
-    }
+//    @Override
+//    public User getUser(String account) {
+//        QueryWrapper nameWrapper = new QueryWrapper();
+//        nameWrapper.eq("account", account);
+//        User user = userMapper.selectOne(nameWrapper);
+//        return user;
+//    }
 
     @Override
     public int resetPass(String account, String oldPassword, String newPassword) {
