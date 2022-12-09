@@ -66,7 +66,7 @@ public class UserController {
         }
         return JSON.toJSONString(map);
     }
-    @ApiOperation(value = "获得某个用户", notes = "根据用户名")
+    @ApiOperation(value = "获得某个用户", notes = "根据用户名 ------最后考虑")
     @RequestMapping(value="/getUser",method = RequestMethod.POST)
     public String getUser(String account){
         Map<String,Object> map=new HashMap<String,Object>();
