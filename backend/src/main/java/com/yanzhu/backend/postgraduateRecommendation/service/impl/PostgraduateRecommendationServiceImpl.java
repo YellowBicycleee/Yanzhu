@@ -42,7 +42,7 @@ public class PostgraduateRecommendationServiceImpl extends ServiceImpl<Postgradu
             //queryWrapper.eq("_year", year);
             try {
                 int __year = year.intValue();
-                queryWrapper.eq("year", year);
+                queryWrapper.eq("_year", year);
             }
             catch (Exception ex){}  // 不是整形，什么也不做
         }
