@@ -1,5 +1,6 @@
 package com.yanzhu.backend.question.controller;
 
+import com.alibaba.fastjson.JSON;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.web.bind.annotation.*;
@@ -10,6 +11,8 @@ import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.util.HashMap;
+import java.util.Map;
 
 
 import static com.yanzhu.backend.util.Constant.DEVELOP_ORIGIN;
@@ -24,12 +27,13 @@ public class QuestionController {
     @ApiOperation(value = "智能查询")
     @GetMapping("/")
     public String askQuestion(@PathVariable String question){
-        if (question == "test_environment"){
-            return "test";
-        }
-        return "test";
+        Map<String, Object> map = new HashMap<String, Object>();
+        String answer = "test";
         // String answer = sendPost("http://127.0.0.1:5000","question="+question);
-        // return answer;
+        // return
+        map.put("status","200");
+        map.put("data", answer);
+        return JSON.toJSONString(map);
     }
 
     //发送请求
