@@ -24,8 +24,8 @@ public class PostgraduateTestController {
     private IPostgraduateTestService postgraduateTestService;
     @ApiOperation(value = "查往年分数线", notes = "查往年分数线---汇总版")
     @GetMapping("/all")
-    public String queryInformation(@RequestParam(name = "cname", required = true) String cname,
-                                   @RequestParam(name = "sname", required = true)String sname,
+    public String queryInformation(@RequestParam(name = "cname", required = false) String cname,
+                                   @RequestParam(name = "sname", required = false)String sname,
                                    @RequestParam(name = "dname", required = false)  String dname,
                                    @RequestParam(name = "year", required = false)  Integer year){
         Map<String, Object> map = new HashMap<String, Object>();

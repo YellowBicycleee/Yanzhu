@@ -19,12 +19,21 @@ public class PostgraduateRecommendationServiceImpl extends ServiceImpl<Postgradu
     @Autowired
     private PostgraduateRecommendationMapper postgraduateRecommendationMapper;
     @Override
-    public Map<String, Object> queryInformationByCSY(String cname, String sname, int year) {
+    public Map<String, Object> queryInformationByCSY(String cname, String sname, Integer year) {
         Map<String, Object> map = new HashMap<String, Object>();
         QueryWrapper queryWrapper = new QueryWrapper<>();
-        queryWrapper.eq("sname", sname);
-        queryWrapper.eq("cname", cname);
-        queryWrapper.eq("_year", year);
+        if (sname != null) {
+            queryWrapper.eq("sname", sname);
+        }
+        if (cname != null) {
+            queryWrapper.eq("cname", cname);
+        }
+        if (year != null) {
+            queryWrapper.eq("_year", year);
+        }
+        if (cname == null && sname == null &&  year == null){
+            queryWrapper.last("limit 2000");
+        }
         List<PostgraduateTest> postgraduateTests = postgraduateRecommendationMapper.selectList(queryWrapper);
         int total = postgraduateTests.size();
         map.put("total", total);

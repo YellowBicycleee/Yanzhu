@@ -7,5 +7,5 @@ import org.springframework.stereotype.Service;
 import java.util.Map;
 @Service
 public interface IPostgraduateRecommendationService extends IService<PostgraduateRecommendation> {
-    public Map<String, Object> queryInformationByCSY(String cname, String sname, int year);
+    public Map<String, Object> queryInformationByCSY(String cname, String sname, Integer year);
 }

@@ -6,10 +6,7 @@ import com.yanzhu.backend.postgraduateTest.entity.PostgraduateTest;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.HashMap;
 import java.util.List;
@@ -28,7 +25,9 @@ public class PostgraduateRecommendationController {
 
     @ApiOperation(value = "根据学校、学院、年份查保研政策", notes = "根据学校、学院、年份查询保研政策")
     @PostMapping("/CSY")
-    public String queryInformationByCSD(String cname, String sname, int year){
+    public String queryInformationByCSD(@RequestParam(name = "cname", required = false)String cname,
+                                        @RequestParam(name = "sname", required = false)String sname,
+                                        @RequestParam(name = "year", required = false) Integer year){
         Map<String, Object> map = new HashMap<String, Object>();
         try{
             Map<String, Object> map1 = postgraduateRecommendationService.queryInformationByCSY(cname, sname, year);
