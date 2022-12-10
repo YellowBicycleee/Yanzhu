@@ -30,11 +30,11 @@ public class PostgraduateTestController {
                                    @RequestParam(name = "year", required = false)  Integer year){
         Map<String, Object> map = new HashMap<String, Object>();
         try{
-            if (cname == null || sname == null){
-                map.put("status","500");
-                map.put("errorMsg","college name or sname shouldn't be null");
-                return JSON.toJSONString(map);
-            }
+//            if (cname == null || sname == null){
+//                map.put("status","500");
+//                map.put("errorMsg","college name or sname shouldn't be null");
+//                return JSON.toJSONString(map);
+//            }
             Map<String, Object> map1 = postgraduateTestService.queryInformation(cname, sname, dname, year);
             int total = (int) map1.get("total");
             List<PostgraduateTest> postgraduateTests = (List<PostgraduateTest>) map1.get("postgraduateTests");
