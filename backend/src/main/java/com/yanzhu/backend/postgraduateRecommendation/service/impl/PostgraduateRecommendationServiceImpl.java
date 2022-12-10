@@ -31,15 +31,20 @@ public class PostgraduateRecommendationServiceImpl extends ServiceImpl<Postgradu
         Map<String, Object> map = new HashMap<String, Object>();
         QueryWrapper queryWrapper = new QueryWrapper<>();
         //if (sname != null) {
-        if (isEmptyString(sname)){
+        if (!isEmptyString(sname)){
             queryWrapper.eq("sname", sname);
         }
         //if (cname != null) {
-        if (isEmptyString(cname)){
+        if (!isEmptyString(cname)){
             queryWrapper.eq("cname", cname);
         }
         if (year != null) {
-            queryWrapper.eq("_year", year);
+            //queryWrapper.eq("_year", year);
+            try {
+                int __year = year.intValue();
+                queryWrapper.eq("year", year);
+            }
+            catch (Exception ex){}  // 不是整形，什么也不做
         }
         //if (cname == null && sname == null &&  year == null){
         if (isEmptyString(sname) && isEmptyString(cname) && year == null){

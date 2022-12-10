@@ -29,18 +29,23 @@ public class PostgraduateTestServiceImpl extends ServiceImpl<PostgraduateTestMap
     public Map<String, Object> queryInformation(String cname, String sname, String dname, Integer year) {
         Map<String, Object> map = new HashMap<String, Object>();
         QueryWrapper queryWrapper = new QueryWrapper<>();
-        if (isEmptyString(sname)) {
+        if (!isEmptyString(sname)) {
             queryWrapper.eq("sname", sname);
         }
-        if (isEmptyString(cname)) {
+        if (!isEmptyString(cname)) {
             queryWrapper.eq("cname", cname);
         }
 
-        if (isEmptyString(dname)){
+        if (!isEmptyString(dname)){
             queryWrapper.eq("dname", dname);
         }
+
         if (year != null) {
-            queryWrapper.eq("year", year);
+            try {
+                int __year = year.intValue();
+                queryWrapper.eq("year", year);
+            }
+            catch (Exception ex){}  // 不是整形，什么也不做
         }
         //if (cname == null && sname == null && dname == null && year == null){
         if (isEmptyString(sname) && isEmptyString(cname) && isEmptyString(dname)){
