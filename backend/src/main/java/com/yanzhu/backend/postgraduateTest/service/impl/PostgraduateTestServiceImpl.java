@@ -7,7 +7,6 @@ import com.yanzhu.backend.postgraduateTest.mapper.PostgraduateTestMapper;
 import com.yanzhu.backend.postgraduateTest.service.IPostgraduateTestService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -18,23 +17,33 @@ public class PostgraduateTestServiceImpl extends ServiceImpl<PostgraduateTestMap
 
     @Autowired
     private PostgraduateTestMapper postgraduateTestMapper;
+    protected boolean isEmptyString(String string) {
+        if (string == null )
+            return true;
+        else if (string.trim().isEmpty()){
+            return true;
+        } else
+            return false;
+    }
     @Override
-    public Map<String, Object> queryInformation(String cname, String sname, String dname, Integer year){
+    public Map<String, Object> queryInformation(String cname, String sname, String dname, Integer year) {
         Map<String, Object> map = new HashMap<String, Object>();
         QueryWrapper queryWrapper = new QueryWrapper<>();
-        if (sname != null) {
+        if (isEmptyString(sname)) {
             queryWrapper.eq("sname", sname);
         }
-        if (cname != null) {
+        if (isEmptyString(cname)) {
             queryWrapper.eq("cname", cname);
         }
-        if (dname != null) {
+
+        if (isEmptyString(dname)){
             queryWrapper.eq("dname", dname);
         }
         if (year != null) {
             queryWrapper.eq("year", year);
         }
-        if (cname == null && sname == null && dname == null && year == null){
+        //if (cname == null && sname == null && dname == null && year == null){
+        if (isEmptyString(sname) && isEmptyString(cname) && isEmptyString(dname)){
             queryWrapper.last("limit 2000");
         }
         List<PostgraduateTest> postgraduateTests = postgraduateTestMapper.selectList(queryWrapper);
