@@ -28,8 +28,8 @@ public class QuestionController {
     @GetMapping("/")
     public String askQuestion(@PathVariable String question){
         Map<String, Object> map = new HashMap<String, Object>();
-        String answer = "test";
-        // String answer = sendPost("http://127.0.0.1:5000","question="+question);
+        //String answer = "test";
+        String answer = sendPost("http://127.0.0.1:5000","question="+question);
         // return
         map.put("status","200");
         map.put("data", answer);
