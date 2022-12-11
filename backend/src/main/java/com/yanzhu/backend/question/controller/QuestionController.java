@@ -57,14 +57,14 @@ public class QuestionController {
             out.flush();
             if (conn.getResponseCode() == 200) {
                 in = new BufferedReader(
-                        new InputStreamReader(conn.getInputStream(), "Unicode")); // ""utf-8"));
+                        new InputStreamReader(conn.getInputStream(), "GBK")); // ""utf-8"));
                 String line = null;
                 while ((line = in.readLine()) != null) {
                     result.append(line);
                 }
             }else {
                 in = new BufferedReader(
-                        new InputStreamReader(conn.getErrorStream(), "Unicode")); // ""utf-8"));
+                        new InputStreamReader(conn.getErrorStream(), "GBK")); // ""utf-8"));
                 String line = null;
                 while ((line = in.readLine()) != null) {
                     System.out.println(line);
