@@ -1,6 +1,7 @@
 package com.yanzhu.backend.question.controller;
 
 import com.alibaba.fastjson.JSON;
+import com.yanzhu.backend.question.entity.Answer;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.web.bind.annotation.*;
@@ -29,10 +30,11 @@ public class QuestionController {
     public String askQuestion(@PathVariable String question){
         Map<String, Object> map = new HashMap<String, Object>();
         //String answer = "test";
-        String answer = sendPost("http://127.0.0.1:5000","question="+question);
-        // return
+        String result = sendPost("http://127.0.0.1:5000","question="+question);
+        Answer answer = JSON.parseObject(result, Answer.class);
+        String answerStr = answer.getAnswer();
         map.put("status","200");
-        map.put("data", answer);
+        map.put("data", answerStr);
         return JSON.toJSONString(map);
     }
 
