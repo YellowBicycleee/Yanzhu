@@ -13,7 +13,8 @@ public class PostgraduateRecommendation {
     @TableField("_year")
     private int year;
     // private String date;
-    private String instructor;
+    @TableField("instructor")
+    private String date;  // 删除导师信息
     private String uri;
     // private String info;
 }

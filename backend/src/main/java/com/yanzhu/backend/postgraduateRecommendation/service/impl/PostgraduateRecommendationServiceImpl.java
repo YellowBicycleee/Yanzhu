@@ -48,6 +48,8 @@ public class PostgraduateRecommendationServiceImpl extends ServiceImpl<Postgradu
         }
         //if (cname == null && sname == null &&  year == null){
         if (isEmptyString(sname) && isEmptyString(cname) && year == null){
+            queryWrapper.eq("_year", 2022);
+            queryWrapper.orderByAsc("instructor");
             queryWrapper.last("limit 2000");
         }
         List<PostgraduateTest> postgraduateTests = postgraduateRecommendationMapper.selectList(queryWrapper);
